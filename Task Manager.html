@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager App</title>
+    <style>
+        /* Basic styling for the app */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(1.avif);
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            margin: 150px auto;
+            padding: 30px;
+            color: #fff;
+            background-color: #200427;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgb(0, 0, 0);
+        }
+        .task {
+            
+            padding: 10px;
+            margin-top:30px;
+            margin-bottom: 10px;
+            color: white;
+            display: flex;
+            background-color: #270430;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 40px 80px rgb(0, 0, 0);
+
+        }
+        input{
+            height: 40px;
+            margin: 0 20px;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgb(54, 51, 51);
+        }
+        .delete-button{
+            width: 100px;
+            height: 50px;
+            margin: 20px 40px;
+            background-color: #0b010e;
+            color: white;
+            padding: 10px;
+            border: 10px;
+            box-shadow: 0 20px 30px rgb(0, 0, 0);
+        }
+        #button{
+            width: 100px;
+            height: 50px;
+            margin: 20px 0px;
+            background-color: #2e033b;
+            color: white;
+            padding: 10px;
+            border: 10px;
+            box-shadow: 0 20px 30px rgb(0, 0, 0);
+            border-radius: 15px;
+        }
+        .countdown {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .delete-button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        #task-name{
+            margin: 0 0;
+            width: 200px;
+        }
+        #task-list{
+            display:flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        <form id="task-form">
+            <input type="text" id="task-name" placeholder="Task name" required>
+            <input type="date" id="deadline-date" required>
+            <input type="time" id="deadline-time" required><br>
+            <button id="button" type="submit">Add Task</button>
+        </form>
+        <div id="task-list"></div>
+    </div>
+
+    <script>
+        const taskForm = document.getElementById('task-form');
+        const taskList = document.getElementById('task-list');
+
+        taskForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const taskName = document.getElementById('task-name').value;
+            const deadlineDate = document.getElementById('deadline-date').value;
+            const deadlineTime = document.getElementById('deadline-time').value;
+
+            // Create a new task element
+            const taskElement = document.createElement('div');
+            taskElement.classList.add('task');
+            taskElement.innerHTML = `
+    <p><strong>${taskName}</strong></p>
+    <p>Deadline: ${formatDate(deadlineDate)} ${formatTime(deadlineTime)}</p>
+    <p class="countdown" data-deadline="${deadlineDate} ${deadlineTime}"></p>
+    <button class="delete-button">Delete</button>
+`;
+
+
+            // Add event listener for delete button
+            const deleteButton = taskElement.querySelector('.delete-button');
+            deleteButton.addEventListener('click', () => {
+                taskElement.remove();
+            });
+
+            taskList.appendChild(taskElement);
+            updateCountdowns();
+        });
+
+        function updateCountdowns() {
+            const countdownElements = document.querySelectorAll('.countdown');
+            countdownElements.forEach((element) => {
+                const deadline = new Date(element.dataset.deadline).getTime();
+                const now = new Date().getTime();
+                const timeLeft = deadline - now;
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+
+                element.textContent = `Time left: ${days}d ${hours}h ${minutes}m`;
+            });
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const month = date.toLocaleString('default', { month: 'short' });
+            return `${month} ${date.getDate()}`;
+        }
+
+        function formatTime(timeString) {
+            const [hours, minutes] = timeString.split(':');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedHours = hours % 12 || 12;
+            return `${formattedHours}:${minutes} ${ampm}`;
+        }
+
+        // Update countdowns every second
+        setInterval(updateCountdowns, 1000);
+    </script>
+</body>
+</html>

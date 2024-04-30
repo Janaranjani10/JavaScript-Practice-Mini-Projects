@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polling App</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body{
+             background-color: rgb(21, 2, 37);
+             color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #poll-options {
+            margin-bottom: 20px;
+        }
+
+        #chart-container {
+            margin-top: 20px;
+        }
+        #button{
+            color: white;
+            background-color: rgb(27, 12, 43);
+            border-radius: 30px;
+            box-shadow:  2px 3px 8px rgb(29, 28, 28);
+            width: 100px;
+            height: 30px;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>What is your favorite programming language?</h1>
+        <div id="poll-options">
+            <button id="button" onclick="submitVote('Javascript')">A. Javascript</button><br>
+            <button id="button" onclick="submitVote('Python')">B. Python</button><br>
+            <button id="button" onclick="submitVote('Java')">C. Java</button><br>
+            <button id="button" onclick="submitVote('C++')">D. C++</button>
+        </div>
+        <div id="chart-container">
+            <canvas id="poll-chart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let votes = localStorage.getItem('votes') ? JSON.parse(localStorage.getItem('votes')) : {
+            'Javascript': 0,
+            'Python': 0,
+            'Java': 0,
+            'C++': 0
+        };
+
+        function submitVote(language) {
+            votes[language]++;
+            localStorage.setItem('votes', JSON.stringify(votes));
+            updateChart();
+        }
+
+        function updateChart() {
+            const labels = Object.keys(votes);
+            const data = Object.values(votes);
+
+            if (window.chart) {
+                window.chart.data.datasets[0].data = data;
+                window.chart.update();
+            } else {
+                const ctx = document.getElementById('poll-chart').getContext('2d');
+                window.chart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(255, 206, 86, 0.6)',
+                                'rgba(75, 192, 192, 0.6)'
+                            ],
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            }
+        }
+
+        window.onload = updateChart;
+    </script>
+</body>
+</html>

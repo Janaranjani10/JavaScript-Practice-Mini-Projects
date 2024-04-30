@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIASEC Assessment</title>
+    <!-- Link your stylesheet file here if needed -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="main">
+        <h1>RIASEC Assessment</h1>
+        <div id="ques">
+            <!-- Add all 42 questions here -->
+            <p>1. I like to work on cars</p>
+            <label>
+                <input type="radio" name="question1" value="R" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question1" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>2. I like putting things together or assembling things</p>
+            <label>
+                <input type="radio" name="question2" value="R" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question2" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>3. I am good at working independently</p>
+            <label>
+                <input type="radio" name="question3" value="I" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question3" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>4. I like to work in teams</p>
+            <label>
+                <input type="radio" name="question4" value="S" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question4" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>5. I am an ambitious person, I set goals for myself</p>
+            <label>
+                <input type="radio" name="question5" value="E" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question5" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>6. I like to organize things, (files, desks/offices)</p>
+            <label>
+                <input type="radio" name="question6" value="C" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question6" value="X" onchange="fun(event)"> No
+            </label>
+            <p>7. I like to build things</p>
+            <label>
+                <input type="radio" name="question7" value="R" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question7" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>8. I like to read about art and music</p>
+            <label>
+                <input type="radio" name="question8" value="A" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question8" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>9. I like to have clear instructions to follow</p>
+            <label>
+                <input type="radio" name="question9" value="C" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question9" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>10. I like to try to influence or persuade people</p>
+            <label>
+                <input type="radio" name="question10" value="E" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question10" value="X" onchange="fun(event)"> No
+            </label>
+            
+            <p>11. I like to do experiments</p>
+            <label>
+                <input type="radio" name="question11" value="I" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question11" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>12. I like to teach or train people</p>
+            <label>
+                <input type="radio" name="question12" value="I" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question12" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>13. I like trying to help people solve their problems</p>
+            <label>
+                <input type="radio" name="question13" value="S" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question13" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>14. I like to take care of animals</p>
+            <label>
+                <input type="radio" name="question14" value="R" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question14" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>15. I wouldn’t mind working 8 hours per day in an office</p>
+            <label>
+                <input type="radio" name="question15" value="C" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question15" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>16. I like selling things</p>
+            <label>
+                <input type="radio" name="question16" value="E" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question16" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>17. I enjoy creative writing</p>
+            <label>
+                <input type="radio" name="question17" value="A" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question17" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>18. I enjoy science</p>
+            <label>
+                <input type="radio" name="question18" value="I" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question18" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>19. I am quick to take on new responsibilities</p>
+            <label>
+                <input type="radio" name="question19" value="E" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question19" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>20. I am interested in healing people</p>
+            <label>
+                <input type="radio" name="question20" value="S" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question20" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>21. I enjoy trying to figure out how things work</p>
+            <label>
+                <input type="radio" name="question21" value="I" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question21" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>22. I like putting things together or assembling things</p>
+            <label>
+                <input type="radio" name="question22" value="R" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question22" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>23. I am a creative person</p>
+            <label>
+                <input type="radio" name="question23" value="A" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question23" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>24. I pay attention to details</p>
+            <label>
+                <input type="radio" name="question24" value="S" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question24" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>25. I like to do filing or typing</p>
+            <label>
+                <input type="radio" name="question25" value="C" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question25" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>26. I like to analyze things (problems/situations)</p>
+            <label>
+                <input type="radio" name="question26" value="I" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question26" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>27. I like to play instruments or sing</p>
+            <label>
+                <input type="radio" name="question27" value="A" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question27" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>28. I enjoy learning about other cultures</p>
+            <label>
+                <input type="radio" name="question28" value="S" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question28" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>29. I would like to start my own business</p>
+            <label>
+                <input type="radio" name="question29" value="E" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question29" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>30. I like to cook</p>
+            <label>
+                <input type="radio" name="question30" value="E" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question30" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>31. I like acting in plays</p>
+            <label>
+                <input type="radio" name="question31" value="A" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question31" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>32. I am a practical person</p>
+            <label>
+                <input type="radio" name="question32" value="C" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question32" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>33. I like working with numbers or charts</p>
+            <label>
+                <input type="radio" name="question33" value="I" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question33" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>34. I like to get into discussions about issues</p>
+            <label>
+                <input type="radio" name="question34" value="S" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question34" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>35. I am good at keeping records of my work</p>
+            <label>
+                <input type="radio" name="question35" value="C" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question35" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>36. I like to lead</p>
+            <label>
+                <input type="radio" name="question36" value="E" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question36" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>37. I like working outdoors</p>
+            <label>
+                <input type="radio" name="question37" value="R" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question37" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>38. I would like to work in an office</p>
+            <label>
+                <input type="radio" name="question38" value="C" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question38" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>39. I’m good at math</p>
+            <label>
+                <input type="radio" name="question39" value="I" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question39" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>40. I like helping people</p>
+            <label>
+                <input type="radio" name="question40" value="S" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question40" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>41. I like to draw</p>
+            <label>
+                <input type="radio" name="question41" value="A" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question41" value="X" onchange="fun(event)"> No
+            </label>
+
+            <p>42. I like to give speeches</p>
+            <label>
+                <input type="radio" name="question42" value="E" onchange="fun(event)"> Yes
+            </label>
+            <label>
+                <input type="radio" name="question42" value="X" onchange="fun(event)"> No
+            </label>
+            
+            <button type="button" onclick="submit()">Submit</button>
+    </div>
+    <div id="main"></div>
+    <!-- Include your JavaScript file -->
+    <script src="RIASEC.js"></script>
+</body>
+</html>
